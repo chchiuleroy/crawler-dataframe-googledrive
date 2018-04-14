@@ -71,10 +71,6 @@ url2 = ['http://www.lotto-8.com/listltodof.asp', 'http://www.lotto-8.com/listlto
 url3 = ['http://www.lotto-8.com/listlto.asp', 'http://www.lotto-8.com/listlto.asp?indexpage=2&orderby=new'] ## 威力彩
 num = [49, 39, 40, 38]
 
-#url = url0
-#j = 1
-#num = 49
-
 big = process(url0, j = 1, num = num[0])
 today = process(url1, j = 1, num = num[1])
 big_fu = process(url2, j = 1, num = num[2])
@@ -90,28 +86,3 @@ wili.to_excel(writer, sheet_name='威力彩')
 wili_spec.to_excel(writer, sheet_name='威力彩特別號')
 
 writer.save()
-
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-
-gauth = GoogleAuth()
-gauth.CommandLineAuth() 
-drive = GoogleDrive(gauth)
-
-try:
-    name = 'lottery_temp.xlsx'  # It's the file which you'll upload
-#    file = drive.CreateFile()  # Create GoogleDriveFile instance
-#    file.SetContentFile(name)
-#    file.Upload()
-#    permission = file.InsertPermission({
-#                        'type': 'anyone',
-#                        'value': 'anyone',
-#                        'role': 'reader'})
-    file2 = drive.CreateFile({'id': '1V_zff4iTDwJjV2F5ETRDvDYVwgHBtO4j'})
-    # id=1w5HetL2R4brLnCyb1JVrTDABUtJv-cBP
-    file.SetContentFile(name)
-    file.Upload()
-    print ("Uploading succeeded!")
-except:
-    print ("Uploading failed.")
-    
