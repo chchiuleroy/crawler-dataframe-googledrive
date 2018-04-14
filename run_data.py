@@ -13,16 +13,8 @@ gauth.CommandLineAuth()
 drive = GoogleDrive(gauth)
 
 try:
-    name = 'lottery_temp.xlsx'  # It's the file which you'll upload
-#    file = drive.CreateFile()  # Create GoogleDriveFile instance
-#    file.SetContentFile(name)
-#    file.Upload()
-#    permission = file.InsertPermission({
-#                        'type': 'anyone',
-#                        'value': 'anyone',
-#                        'role': 'reader'})
-    file2 = drive.CreateFile({'id': '1V_zff4iTDwJjV2F5ETRDvDYVwgHBtO4j'})
-    # id=1w5HetL2R4brLnCyb1JVrTDABUtJv-cBP
+    name = 'lottery_temp.xlsx'  
+    file2 = drive.CreateFile({'id': file['id']})
     file2.SetContentFile(name)
     file2.Upload()
     print ("Uploading succeeded!")
